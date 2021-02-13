@@ -1,29 +1,29 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useCookies } from 'react-cookie';
 
 export const WishlistContext = React.createContext({});
 
 const WishlistProvider = ({ children }) => {
   const expireTime = new Date(2100);
-
-  const [wishlist, setWishlist] = useState([]);
   const [cookie, setCookie] = useCookies(['wishlist']);
 
-  useEffect(() => {
-    wishlist?.length &&
-      setCookie('wishlist', JSON.stringify(wishlist), expireTime);
-  }, [wishlist]);
+  const { wishlist } = cookie;
 
-  useEffect(() => {
-    cookie.wishlist?.length && setWishlist(cookie.wishlist);
-  }, []);
   const addToWishlist = (item) => {
-    setWishlist((wishlist) => [...wishlist, item]);
+    setCookie(
+      'wishlist',
+      JSON.stringify((wishlist) => [...wishlist, item]),
+      expireTime
+    );
   };
 
   const removeFromWishlist = (movie) => {
-    setWishlist((state) =>
-      state.filter((filterItem) => filterItem.imdbID !== movie.imdbID)
+    setCookie(
+      'wishlist',
+      JSON.stringify(
+        cookie.filter((wishlistItem) => wishlistItem.imdbID === movie.imdbID),
+        expireTime
+      )
     );
   };
 
