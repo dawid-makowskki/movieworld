@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import useSearch from 'hooks/useSearch';
 import { Link } from 'react-router-dom';
-import Button from 'components/button';
 import { LargeHeading, Heading } from 'components/heading';
 import SearchInput from 'components/searchInput';
 import Error from 'components/error';
