@@ -16,11 +16,9 @@ const useSearch = () => {
             setSearchingStatus('notFound');
           } else {
             setSearchingStatus('success');
-            setMovie({ ...response.data });
+            setMovie(response.data);
           }
           setSearchvalue('');
-          console.log(movie);
-          console.log(searchingStatus);
         })
         .catch(function (error) {
           setSearchingStatus('error');

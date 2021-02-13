@@ -9,7 +9,7 @@ const Router = () => (
       <Route exact path="/">
         <Search />
       </Route>
-      <Route exact path="wishlist">
+      <Route exact path="/wishlist">
         <Wishlist />
       </Route>
     </Switch>

@@ -15,6 +15,7 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 40px;
   @media (max-width: 1700px) {
     padding: 0 10% 0 10%;
   }
@@ -30,7 +31,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const Result = ({ movie }) => {
+const Result = ({ movie, route }) => {
   const {
     Poster,
     imdbRating,
@@ -48,6 +49,7 @@ const Result = ({ movie }) => {
       <Wrapper>
         <ImageWrapped Poster={Poster} imdbRating={imdbRating} />
         <MovieInfo
+          movie={movie}
           Title={Title}
           Year={Year}
           Genre={Genre}
@@ -55,6 +57,7 @@ const Result = ({ movie }) => {
           Writer={Writer}
           Country={Country}
           Plot={Plot}
+          route={route}
         />
       </Wrapper>
     </CenterWrapper>

@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import useSearch from 'hooks/useSearch';
 import { Link } from 'react-router-dom';
-
+import Button from 'components/button';
 import { LargeHeading, Heading } from 'components/heading';
 import SearchInput from 'components/searchInput';
 import Error from 'components/error';
@@ -29,21 +29,20 @@ const InputWrapper = styled.div`
 `;
 
 const NavLink = styled(Link)`
-  color: ${({ theme }) => theme.color.red};
+  color: ${({ theme }) => theme.color.bg};
+  background-color: ${({ theme }) => theme.color.red};
+  font-size: ${({ theme }) => theme.fontSize.desktop.s};
+  border-radius: 25px;
+  padding: 20px 40px;
   text-decoration: none;
   position: absolute;
   top: 20px;
   right: 20px;
-  font-size: ${({ theme }) => theme.fontSize.desktop.m};
   transition: transform 100ms ease-in;
-
   @media (max-width: 700px) {
-    font-size: ${({ theme }) => theme.fontSize.mobile.m};
-  }
-
-  &:hover {
-    cursor: pointer;
-    transform: scale(1.1);
+    font-size: ${({ theme }) => theme.fontSize.mobile.s};
+    padding: 10px 20px;
+    border-radius: 15px;
   }
 `;
 
@@ -68,7 +67,7 @@ const Search = () => {
           {searchingStatus === 'error' && <Error>Problem with request</Error>}
         </InputWrapper>
       </Hero>
-      {searchingStatus === 'success' && <Result movie={movie} />}
+      {searchingStatus === 'success' && <Result route="search" movie={movie} />}
     </Wrapper>
   );
 };
