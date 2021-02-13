@@ -8,7 +8,7 @@ export const theme = {
   fontSize: {
     desktop: {
       xl: '96px',
-      l: '64px',
+      l: '56px',
       m: '48px',
       s: '24px',
     },
