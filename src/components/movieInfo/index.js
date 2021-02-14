@@ -1,8 +1,10 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { WishlistContext } from 'hooks/useWishlist';
 import { Heading } from 'components/heading';
 import Button from 'components/button';
+
 const Wrapper = styled.div`
   height: 100%;
   width: 500px;
@@ -11,18 +13,24 @@ const Wrapper = styled.div`
   align-items: flex-start;
   justify-content: space-between;
   padding-bottom: 5%;
+  @media (max-width: 1100px) {
+    height: 600px;
+    width: 400px;
+  }
   @media (max-width: 700px) {
-    height: 550px;
-    width: 360px;
+    height: 500px;
+    width: 260px;
   }
 `;
 const FlexColumn = styled.div`
   display: flex;
   flex-direction: column;
+
   align-items: flex-start;
 `;
 const StyledTitle = styled(Heading)`
   color: ${({ theme }) => theme.color.red};
+  text-align: left;
 `;
 const StyledYear = styled(Heading)`
   color: ${({ theme }) => theme.color.lightGrey};
@@ -31,6 +39,9 @@ const StyledYear = styled(Heading)`
 const StyledP = styled.p`
   color: ${({ theme }) => theme.color.darkGrey};
   font-size: ${({ theme }) => theme.fontSize.desktop.s};
+  @media (max-width: 700px) {
+    font-size: ${({ theme }) => theme.fontSize.mobile.s};
+  }
 `;
 const Red = styled.span`
   color: ${({ theme }) => theme.color.red};
@@ -90,6 +101,18 @@ const MovieInfo = ({
       </Button>
     </Wrapper>
   );
+};
+
+MovieInfo.propTypes = {
+  Title: PropTypes.string.isRequired,
+  Year: PropTypes.string.isRequired,
+  Plot: PropTypes.string.isRequired,
+  Genre: PropTypes.string.isRequired,
+  Director: PropTypes.string.isRequired,
+  Writer: PropTypes.string.isRequired,
+  Country: PropTypes.string.isRequired,
+  movie: PropTypes.object.isRequired,
+  route: PropTypes.string.isRequired,
 };
 
 export default MovieInfo;

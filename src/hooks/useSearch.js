@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useCallback } from 'react';
 import { debounce } from 'lodash';
 import axios from 'axios';
@@ -15,8 +16,8 @@ const useSearch = () => {
           if (response.data.Error) {
             setSearchingStatus('notFound');
           } else {
-            setSearchingStatus('success');
             setMovie(response.data);
+            setSearchingStatus('success');
           }
           setSearchvalue('');
         })

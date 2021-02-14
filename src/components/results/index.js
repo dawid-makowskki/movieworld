@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Heading } from 'components/heading';
+import PropTypes from 'prop-types';
 import Result from 'components/result';
 
 const Wrapper = styled.div`
@@ -20,5 +20,9 @@ const Results = ({ wishlist }) => (
     ))}
   </Wrapper>
 );
+
+Results.propTypes = {
+  wishlist: PropTypes.array.isRequired,
+};
 
 export default Results;

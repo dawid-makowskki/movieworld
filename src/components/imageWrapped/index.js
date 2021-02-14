@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 const Rating = styled.div`
   width: 96px;
@@ -26,7 +27,8 @@ const ImageWrapper = styled.div`
   position: relative;
 
   @media (max-width: 700px) {
-    width: 300px;
+    width: 256px;
+    margin-bottom: 20px;
   }
 `;
 
@@ -38,5 +40,10 @@ const ImageWrapped = ({ Poster, imdbRating }) => (
     </Rating>
   </ImageWrapper>
 );
+
+ImageWrapped.propTypes = {
+  Poster: PropTypes.string.isRequired,
+  imdbRating: PropTypes.string.isRequired,
+};
 
 export default ImageWrapped;

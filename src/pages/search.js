@@ -10,12 +10,16 @@ import Result from 'components/result';
 const Wrapper = styled.div`
   width: 100vw;
 `;
+
 const Hero = styled.div`
   height: 70vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+  @media (max-width: 700px) {
+    margin-top: 10%;
+  }
 `;
 
 const InputWrapper = styled.div`
